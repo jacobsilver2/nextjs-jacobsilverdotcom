@@ -17,7 +17,7 @@ const Tabs = styled.div`
   gap: 8px;
 `;
 
-const Tab = styled.div<{ isActive?: boolean }>`
+const Tab = styled.button<{ isActive?: boolean }>`
   text-align: center;
   height: 100%;
   border: 1px solid var(--colors-black);
@@ -25,7 +25,7 @@ const Tab = styled.div<{ isActive?: boolean }>`
   color: ${({ isActive }) =>
     isActive ? "var(--colors-white)" : "var(--colors-black)"};
   background-color: ${({ isActive }) =>
-    isActive ? "var(--colors-black)" : "var(--colors-white)"};
+    isActive ? "var(--colors-black)" : "var(--colors-bg)"};
   &:hover {
     background-color: var(--colors-black);
     color: var(--colors-white);
@@ -34,7 +34,11 @@ const Tab = styled.div<{ isActive?: boolean }>`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  padding: 0 25%;
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+  }
 `;
 
 export const AboutComponent = () => {

@@ -7,6 +7,6 @@ export const HomeComponent = () => (
       <meta name="description" content="Jacob Silver Homepage" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <h1>Home</h1>
+    <p>Welcome to jacobsilver.com</p>
   </>
 );

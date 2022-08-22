@@ -8,13 +8,14 @@ const GlobalStyles = createGlobalStyle`
         --colors-black: #000;
         --colors-gray: #999;
         --colors-white: #fff;
+        --colors-bg: #ccd4db;
     }
 html,
 body {
+  background-color: var(--colors-bg);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 a {

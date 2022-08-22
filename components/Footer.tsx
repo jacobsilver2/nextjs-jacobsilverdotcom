@@ -6,7 +6,7 @@ const StyledFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   height: var(--headerFooterHeight);
-  border-top: 1px solid var(--colors-black);
+  border-top: 1px dashed var(--colors-black);
   padding: 0 var(--lrpadding);
 `;
 
@@ -34,7 +34,7 @@ const getFullYear = () => new Date().getFullYear();
 export const Footer = () => (
   <StyledFooter>
     <div>
-      <p>©{getFullYear()} Jacob Silver</p>
+      <p>©{getFullYear()} J.S.</p>
     </div>
     <Icons>
       <Icon>

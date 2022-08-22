@@ -1,26 +1,33 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import Headroom from "react-headroom";
 
 const StyledHeader = styled.header`
-  border-bottom: 1px solid var(--colors-black);
+  border-bottom: 1px dashed var(--colors-black);
   display: flex;
   height: var(--headerFooterHeight);
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--lrpadding);
+  padding: 1rem var(--lrpadding);
+  z-index: 2;
+  background-color: var(--colors-bg);
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem 0;
+    gap: 8px;
+  }
 `;
 
-const UL = styled.ul`
+const NavItems = styled.div`
   list-style: none;
   text-align: center;
 `;
-const LI = styled.li`
+const NavItem = styled.div`
   display: inline;
   padding: 0 0.5em;
-  /* margin: 0 0.5em; */
-  /* border: 1px solid var(--colors-gray); */
 `;
 
 const A = styled.a<{ isActive?: boolean }>`
@@ -35,38 +42,40 @@ const A = styled.a<{ isActive?: boolean }>`
 export const Header = () => {
   const { pathname } = useRouter();
   return (
-    <StyledHeader>
-      <div>
-        <Link passHref href="/">
-          <A>
-            <b>Jacob Silver</b>
-          </A>
-        </Link>
-      </div>
-      <nav>
-        <UL>
-          <LI>
-            <Link passHref href="/">
-              <A isActive={pathname === "/"}>Home</A>
-            </Link>
-          </LI>
-          <LI>
-            <Link passHref href="/about">
-              <A isActive={pathname === "/about"}>About</A>
-            </Link>
-          </LI>
-          <LI>
-            <Link passHref href="/shows">
-              <A isActive={pathname === "/shows"}>Shows</A>
-            </Link>
-          </LI>
-          <LI>
-            <Link passHref href="/videos">
-              <A isActive={pathname === "/videos"}>Videos</A>
-            </Link>
-          </LI>
-        </UL>
-      </nav>
-    </StyledHeader>
+    <Headroom style={{ maxWidth: "1024px", margin: "auto" }}>
+      <StyledHeader>
+        <div>
+          <Link passHref href="/">
+            <A>
+              <b>Jacob Silver</b>
+            </A>
+          </Link>
+        </div>
+        <nav>
+          <NavItems>
+            <NavItem>
+              <Link passHref href="/">
+                <A isActive={pathname === "/"}>Home</A>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link passHref href="/about">
+                <A isActive={pathname === "/about"}>About</A>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link passHref href="/shows">
+                <A isActive={pathname === "/shows"}>Shows</A>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link passHref href="/videos">
+                <A isActive={pathname === "/videos"}>Videos</A>
+              </Link>
+            </NavItem>
+          </NavItems>
+        </nav>
+      </StyledHeader>
+    </Headroom>
   );
 };

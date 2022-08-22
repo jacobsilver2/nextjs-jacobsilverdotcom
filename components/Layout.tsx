@@ -4,7 +4,10 @@ import { Header } from "./Header";
 
 const Grid = styled.div`
   height: 100vh;
+  background-color: var(--colors-bg);
   display: grid;
+  max-width: 1024px;
+  margin: auto;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
@@ -17,12 +20,10 @@ const Grid = styled.div`
   main {
     grid-area: main;
     justify-self: center;
-    overflow: auto;
-    margin: 2rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1024px;
   }
   footer {
     grid-area: footer;
