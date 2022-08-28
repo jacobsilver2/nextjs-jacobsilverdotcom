@@ -21,9 +21,11 @@ const Grid = styled.div`
     grid-area: main;
     justify-self: center;
     margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    a {
+      &:hover {
+        text-decoration: underline dashed;
+      }
+    }
   }
   footer {
     grid-area: footer;
